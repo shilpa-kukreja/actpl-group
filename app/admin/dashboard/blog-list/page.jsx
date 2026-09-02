@@ -78,7 +78,7 @@ export default function BlogList() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     {blog.image ? (
                       <img
-                        src={`http://localhost:4000/${blog.image}`}
+                        src={`https://actpl-group.onrender.com/${blog.image}`}
                         alt={blog.title}
                         className="w-16 h-16 object-cover rounded-lg border border-gray-200"
                       />

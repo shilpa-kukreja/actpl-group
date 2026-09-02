@@ -6,7 +6,7 @@ import Footer from "@/app/components/Footer";
 // Helper to fetch related blogs (excluding current)
 async function fetchRelatedBlogs(currentId) {
   try {
-    const res = await fetch("http://localhost:4000/api/blog/getallblogs", {
+    const res = await fetch("https://actpl-group.onrender.com/api/blog/getallblogs", {
       cache: "no-store",
     });
     if (!res.ok) return [];
@@ -23,7 +23,7 @@ async function fetchRelatedBlogs(currentId) {
 export default async function BlogDetailPage({ params }) {
   const { id } = await params;
 
-  const res = await fetch(`http://localhost:4000/api/blog/getblog/${id}`, {
+  const res = await fetch(`https://actpl-group.onrender.com/api/blog/getblog/${id}`, {
     cache: "no-store",
   });
 
@@ -37,7 +37,7 @@ export default async function BlogDetailPage({ params }) {
   // Image URL with fallback
   const imageUrl = post.image?.startsWith("http")
     ? post.image
-    : `http://localhost:4000/${post.image || "default.jpg"}`;
+    : `https://actpl-group.onrender.com/${post.image || "default.jpg"}`;
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     month: "long",
@@ -167,7 +167,7 @@ export default async function BlogDetailPage({ params }) {
               {relatedPosts.map((related) => {
                 const relatedImage = related.image?.startsWith("http")
                   ? related.image
-                  : `http://localhost:4000/${related.image || "default.jpg"}`;
+                  : `https://actpl-group.onrender.com/${related.image || "default.jpg"}`;
                 const relatedExcerpt = related.content.slice(0, 100) + "…";
 
                 return (

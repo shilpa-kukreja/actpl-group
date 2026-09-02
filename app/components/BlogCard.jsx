@@ -29,7 +29,7 @@ export default function BlogCard({ post, index, isVisible }) {
   // Build image URL (adjust base URL if needed)
   const imageUrl = post.image.startsWith("http")
     ? post.image
-    : `http://localhost:4000/${post.image}`;
+    : `https://actpl-group.onrender.com/${post.image}`;
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     month: "short",

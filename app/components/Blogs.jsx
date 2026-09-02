@@ -17,7 +17,7 @@ export default function Blogs() {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/blog/getallblogs");
+      const response = await fetch("https://actpl-group.onrender.com/api/blog/getallblogs");
       if (!response.ok) throw new Error("Failed to fetch blogs");
       const data = await response.json();
       setBlogs(data);
