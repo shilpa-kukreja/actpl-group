@@ -96,12 +96,15 @@ export default function Footer() {
                 <span className="text-lg font-light tracking-[0.25em] text-white">ACTPL</span>
               </Link>
               <p className="text-sm text-white leading-relaxed max-w-xs">
-                A diversified industrial group delivering excellence in manufacturing, infrastructure, energy, and engineering across the globe.
+                A diversified engineering and manufacturing group delivering advanced compressor technologies and precision engineering solutions across India, the UAE, and the USA.
               </p>
-              <div className="flex items-center gap-2 text-xs text-white">
+              <p className="text-sm text-white leading-relaxed max-w-xs">
+                Built on four decades of experience, we serve critical industries worldwide through quality, reliability, and long-term partnerships.
+              </p>
+              {/* <div className="flex items-center gap-2 text-xs text-white">
                 <span className="w-1.5 h-1.5 rounded-full bg-gold-400/60" />
-                <span>Est. 1998</span>
-              </div>
+                <span> Built on four decades of experience, we serve critical industries worldwide through quality, reliability, and long-term partnerships.</span>
+              </div> */}
             </div>
 
             {/* Quick Links */}

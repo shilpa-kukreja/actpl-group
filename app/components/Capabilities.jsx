@@ -32,7 +32,7 @@ const capabilities = [
   {
     id: 2,
     title: "Reciprocating Compressor Technology",
-    desc: "Deep specialization in reciprocating compressor components and aftermarket solutions, supporting a wide range of compressor makes, models, operating conditions, and industrial applications. Our capabilities include compressor valves and internals, packing cases and rings, piston and rider rings, pistons, piston rods, scraper components, liners, and other critical compressor parts.",
+    desc: "Deep specialization in reciprocating compressor components and aftermarket solutions, supporting a wide range of compressor makes, models, operating conditions, and industrial applications.Our capabilities include compressor valves, internals, packing cases and rings, piston and rider rings, pistons, piston rods, scraper components, liners, and other critical parts.",
     badge: "Worldwide Support",
     icon: <Activity className="w-8 h-8" />,
     gradient: "from-indigo-600 to-indigo-800",
@@ -40,7 +40,7 @@ const capabilities = [
   {
     id: 3,
     title: "Advanced Reverse Engineering",
-    desc: "We transform existing components, samples, and legacy parts into manufacturing-ready engineering solutions through advanced measurement, 3D scanning, dimensional analysis, material evaluation, engineering drawings, prototyping, validation, and manufacturing. Our reverse engineering capabilities help customers address obsolete components, unavailable drawings, long lead times, localization requirements, and difficult-to-source critical parts.",
+    desc: "We transform existing components, samples, and legacy parts into manufacturing-ready engineering solutions through advanced measurement, 3D scanning, dimensional analysis, material evaluation, engineering drawings, prototyping, validation, and manufacturing.Our reverse engineering capabilities help customers address obsolete components and difficult-to-source critical parts.",
     badge: "From Component to Complete Solution",
     icon: <Search className="w-8 h-8" />,
     gradient: "from-purple-600 to-purple-800",
@@ -48,7 +48,7 @@ const capabilities = [
   {
     id: 4,
     title: "Precision Engineering & Inspection",
-    desc: "Precision is engineered into every stage of our process. Advanced dimensional inspection, metrology, surface measurement, material verification, and quality-control technologies support the development and manufacture of components where tight tolerances, surface finish, geometry, and repeatability are critical to performance.",
+    desc: " Precision is engineered into every stage of our process.Advanced dimensional inspection, metrology, surface measurement, material verification, and quality-control technologies support manufacture of components where tight tolerances, surface finish, geometry, and repeatability are critical to performance.",
     badge: "Verified with Confidence",
     icon: <Ruler className="w-8 h-8" />,
     gradient: "from-emerald-600 to-emerald-800",
@@ -56,7 +56,7 @@ const capabilities = [
   {
     id: 5,
     title: "Materials & Application Expertise",
-    desc: "Industrial performance begins with selecting the right material for the operating environment. Our experience spans stainless and specialty steels, precipitation-hardening alloys, nickel-based superalloys, high-performance thermoplastics, engineered polymers, and specialized coatings for demanding applications involving pressure, temperature, corrosion, wear, and cyclic loading. We combine material knowledge with manufacturing experience to develop solutions suited to real operating conditions.",
+    desc: "Industrial performance begins with selecting the right material for the operating environment.Our experience spans stainless and specialty steels, precipitation-hardening alloys, nickel-based superalloys, high-performance thermoplastics, engineered polymers, and specialized coatings for applications involving pressure, temperature, corrosion, wear, and cyclic loading.",
     badge: "The Right Material. The Right Performance",
     icon: <Layers className="w-8 h-8" />,
     gradient: "from-amber-600 to-amber-800",
@@ -64,7 +64,7 @@ const capabilities = [
   {
     id: 6,
     title: "Quality & Reliability",
-    desc: "Quality is integrated throughout our engineering and manufacturing processes—from incoming material verification and process control to final dimensional inspection, testing, documentation, and traceability. Supported by internationally recognized management systems and a culture of continuous improvement, our objective is simple: consistent quality and dependable performance from every component we deliver.",
+    desc: "Quality is integrated throughout our engineering and manufacturing processes—from incoming material verification and process control to final dimensional inspection, testing, documentation, and traceability.Supported by internationally recognized management systems and continuous improvement, our objective is simple: consistent quality and dependable performance in every component we deliver.",
     badge: "Quality Without Compromise",
     icon: <ShieldCheck className="w-8 h-8" />,
     gradient: "from-rose-600 to-rose-800",
@@ -72,7 +72,7 @@ const capabilities = [
   {
     id: 7,
     title: "Engineering Development & Continuous Innovation",
-    desc: "ACTPL continually invests in advanced manufacturing technologies, metrology, materials, process development, and engineering knowledge to strengthen our capabilities and solve increasingly complex industrial challenges. Our approach combines decades of practical manufacturing experience with modern engineering technology to continuously improve how components are developed, manufactured, inspected, and supported.",
+    desc: "ACTPL continually invests in advanced manufacturing technologies, metrology, materials, process development, and engineering knowledge to strengthen our capabilities and solve increasingly complex industrial challenges.Our approach combines decades of manufacturing experience with modern engineering technology to continuously improve how components are developed, manufactured, and supported.",
     badge: "Innovation Driving Performance",
     icon: <Lightbulb className="w-8 h-8" />,
     gradient: "from-cyan-600 to-cyan-800",
@@ -80,7 +80,7 @@ const capabilities = [
   {
     id: 8,
     title: "Global Supply, Service & Support",
-    desc: "ACTPL combines the manufacturing and engineering strength of India with regional operations in the UAE and USA, creating a global platform for faster communication, local inventory, technical support, component supply, and aftermarket service. Through our group companies, we support customers across Europe, the Middle East, Asia, North America, and other international markets.",
+    desc: "ACTPL combines the manufacturing and engineering strength of India with regional operations in the UAE and USA, creating a global platform for communication, technical support, component supply, and aftermarket service.Through our group companies, we support customers across Europe, the Middle East, Asia, North America, and other international markets.",
     badge: "Engineered in India. Supported Globally.",
     icon: <Globe className="w-8 h-8" />,
     gradient: "from-teal-600 to-teal-800",
@@ -211,7 +211,7 @@ export default function Capabilities() {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs lg:text-[13px] text-white/70 leading-relaxed flex-1">
+                    <p className="text-xs text-justify lg:text-[13px] text-white/70 leading-relaxed flex-1">
                       {capability.desc}
                     </p>
 
