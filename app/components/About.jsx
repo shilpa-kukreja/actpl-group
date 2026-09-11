@@ -111,18 +111,15 @@ export default function About() {
           {/* Left: Text content */}
           <div className="space-y-6">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.1] text-white">
-              Building <span className="text-gold-400">Excellence</span>
+              Building <span className="text-gold-400">Industrial</span>
               <br />
               <span className="text-white/70 text-2xl sm:text-3xl lg:text-4xl font-light">
-                Since 1998
+                 Excellence
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-white/60 max-w-lg leading-relaxed">
-              ACTPL is a diversified industrial group with a rich legacy of innovation,
-              quality, and global impact. We operate across manufacturing, infrastructure,
-              energy, and engineering sectors, delivering sustainable solutions to our
-              partners worldwide.
+            <p className="text-base sm:text-lg text-white/60 max-w-lg text-justify leading-relaxed">
+              ACTPL is a diversified engineering and manufacturing group bringing together specialized companies across India, the UAE, and the USA. Built on more than four decades of industry experience, the Group delivers advanced solutions in compressor technologies, precision manufacturing, reverse engineering, industrial components, and specialized engineering services to customers worldwide.
             </p>
 
             {/* Vision & Mission Cards */}
@@ -134,8 +131,8 @@ export default function About() {
                   </svg>
                 </div>
                 <h4 className="text-sm font-semibold text-white tracking-wide uppercase">Vision</h4>
-                <p className="text-sm text-white mt-2 leading-relaxed">
-                  To be the global benchmark for industrial excellence, innovation, and sustainability.
+                <p className="text-sm text-white mt-2 text-justify leading-relaxed">
+                  To be a globally trusted engineering and manufacturing partner, recognized for precision, reliability, and innovation — serving critical industries across the world through an integrated network that brings us closer to every customer, wherever they operate.
                 </p>
               </div>
               <div className="group p-6 rounded-2xl border border-white bg-[#F28C28] backdrop-blur-sm hover:border-gold-400/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(216,179,106,0.08)]">
@@ -145,13 +142,13 @@ export default function About() {
                   </svg>
                 </div>
                 <h4 className="text-sm font-semibold text-white tracking-wide uppercase">Mission</h4>
-                <p className="text-sm text-white mt-2 leading-relaxed">
-                  To empower industries through cutting-edge engineering, reliable partnerships, and a commitment to quality.
+                <p className="text-sm text-white mt-2 text-justify leading-relaxed">
+                  To deliver engineering excellence and uncompromising quality across every solution we build, strengthening our global manufacturing and service capabilities, and forging long-term partnerships with customers through reliability, responsiveness, and continuous innovation.
                 </p>
               </div>
             </div>
 
-          
+
           </div>
 
           {/* Right: Image Slider */}
@@ -190,7 +187,7 @@ export default function About() {
                 <button
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
-                 
+
                   aria-label={`Slide ${idx + 1}`}
                 />
               ))}

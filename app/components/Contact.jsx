@@ -14,6 +14,9 @@ export default function Contact() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -32,18 +35,45 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Thank you! We'll get back to you soon.");
-    setFormData({
-      fullName: "",
-      company: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setSubmitStatus("success");
+      // Reset form on success
+      setFormData({
+        fullName: "",
+        company: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+      // Optionally hide success message after a few seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -213,13 +243,38 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="group w-full py-3.5 rounded-xl bg-[#F28C28] text-white font-semibold text-sm uppercase tracking-[0.15em] shadow-lg shadow-gold-500/30 hover:shadow-gold-500/50 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="group w-full py-3.5 rounded-xl bg-[#F28C28] text-white font-semibold text-sm uppercase tracking-[0.15em] shadow-lg shadow-gold-500/30 hover:shadow-gold-500/50 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>Send Message</span>
-                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h13M13 6l6 6-6 6" />
-                </svg>
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h13M13 6l6 6-6 6" />
+                    </svg>
+                  </>
+                )}
               </button>
+
+              {/* Status messages */}
+              {submitStatus === "success" && (
+                <div className="text-green-400 text-sm text-center mt-2 bg-green-400/10 p-3 rounded-xl border border-green-400/20">
+                  ✅ Your message has been sent successfully! We'll get back to you soon.
+                </div>
+              )}
+              {submitStatus === "error" && (
+                <div className="text-red-400 text-sm text-center mt-2 bg-red-400/10 p-3 rounded-xl border border-red-400/20">
+                  ❌ Failed to send. Please try again or contact us directly.
+                </div>
+              )}
             </form>
           </div>
         </div>

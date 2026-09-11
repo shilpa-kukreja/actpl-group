@@ -2,73 +2,245 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import {
+  Flame,
+  Droplets,
+  Leaf,
+  FlaskConical,
+  Ship,
+  BottleWine,
+  Fuel,
+  Network,
+  Factory,
+  Wind,
+  Activity,
+} from "lucide-react";
 
-// Industry data with images
+// Exact content data for 11 industries with verified working images
 const industries = [
   {
-    id: "airport",
-    name: "Airport Infrastructure",
-    shortDesc: "Emergency lighting systems for terminals and critical transit operations.",
-    desc: "Emergency lighting systems designed for terminals, passenger movement areas, and critical transit operations.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop",
-    gradient: "from-blue-950/80 via-blue-950/50 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-        <circle cx="12" cy="12" r="3" />
-      </svg>
-    ),
+    id: "natural-gas",
+    name: "Natural Gas Gathering",
+    shortDesc: "Compression solutions for field-level gas collection",
+    desc: "Reliable systems built to support gas gathering and transport operations from the field to the pipeline.",
+    // Verified working image: Gas refinery at night
+    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&q=80&w=800",
+    icon: <Flame className="w-6 h-6" />,
   },
   {
-    id: "metro",
-    name: "Metro & Rail",
-    shortDesc: "Reliable lighting for rail corridors, stations, and tunnels.",
-    desc: "Reliable lighting solutions for rail corridors, stations, tunnels, and transportation networks.",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop",
-    gradient: "from-cyan-950/80 via-cyan-950/50 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 21h18" />
-        <path d="M5 21V7l4-4 4 4v14" />
-        <path d="M19 21V11l-3-3" />
-        <path d="M9 12h6" />
-        <path d="M9 16h6" />
-      </svg>
-    ),
+    id: "lng",
+    name: "Liquefied Natural Gas (LNG)",
+    shortDesc: "Engineered systems for LNG processing",
+    desc: "Precision-built solutions supporting liquefaction, storage, and regasification processes.",
+    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800",
+    icon: <Droplets className="w-6 h-6" />,
   },
   {
-    id: "healthcare",
-    name: "Healthcare & Hospitals",
-    shortDesc: "Efficient lighting for hospitals and patient-care environments.",
-    desc: "Efficient emergency lighting designed for hospitals, healthcare facilities, and patient-care environments.",
-    image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=800&h=600&fit=crop",
-    gradient: "from-emerald-950/80 via-emerald-950/50 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 21h16" />
-        <path d="M6 21V9l6-4 6 4v12" />
-        <path d="M8 12h8" />
-        <path d="M8 16h8" />
-      </svg>
-    ),
+    id: "biogas",
+    name: "Biogas & Renewable Natural Gas (RNG)",
+    shortDesc: "Compression built for renewable gas",
+    desc: "Reliable solutions supporting the growing demand for cleaner, renewable gas processing.",
+    image: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&q=80&w=800",
+    icon: <Leaf className="w-6 h-6" />,
   },
   {
-    id: "hospitality",
-    name: "Hospitality & Hotels",
-    shortDesc: "Modern safety lighting for hotels, resorts, and commercial spaces.",
-    desc: "Modern safety lighting systems developed for hotels, resorts, and commercial hospitality spaces.",
-    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop",
-    gradient: "from-amber-950/80 via-amber-950/50 to-transparent",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-      </svg>
-    ),
+    id: "chemical",
+    name: "Chemical Processing",
+    shortDesc: "Engineered for demanding environments",
+    desc: "Equipment designed to perform reliably across complex chemical processing operations.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+    icon: <FlaskConical className="w-6 h-6" />,
+  },
+  {
+    id: "marine",
+    name: "Marine",
+    shortDesc: "Built for marine reliability",
+    desc: "Specialized compressor systems engineered for the durability marine applications demand.",
+    // Verified working image: Cargo ship
+    image: "https://images.unsplash.com/photo-1559628233-100c798642d4?auto=format&fit=crop&q=80&w=800",
+    icon: <Ship className="w-6 h-6" />,
+  },
+  {
+    id: "pet-bottle",
+    name: "P.E.T. Bottle Blowing",
+    shortDesc: "Precision air for high-volume production",
+    desc: "High-precision compression solutions supporting efficient, high-volume bottle manufacturing.",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
+    icon: <BottleWine className="w-6 h-6" />,
+  },
+  {
+    id: "cng",
+    name: "Compressed Natural Gas (CNG)",
+    shortDesc: "Dependable CNG compression systems",
+    desc: "Reliable solutions supporting fueling infrastructure and CNG distribution networks.",
+    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
+    icon: <Fuel className="w-6 h-6" />,
+  },
+  {
+    id: "pipeline",
+    name: "Pipeline Transmission",
+    shortDesc: "Pressure and flow, maintained",
+    desc: "Robust compressor solutions engineered for long-distance pipeline transmission.",
+    // Verified working image: Industrial pipeline infrastructure
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+    icon: <Network className="w-6 h-6" />,
+  },
+  {
+    id: "petrochemical",
+    name: "Petrochemical Processing",
+    shortDesc: "Engineered for complex processing",
+    desc: "Advanced solutions built for the high-demand petrochemical processing industry.",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800",
+    icon: <Factory className="w-6 h-6" />,
+  },
+  {
+    id: "hydrogen",
+    name: "Hydrogen Applications",
+    shortDesc: "Precision for evolving hydrogen needs",
+    desc: "Compression technology supporting the growing hydrogen application landscape.",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800",
+    icon: <Wind className="w-6 h-6" />,
+  },
+  {
+    id: "oxygen",
+    name: "Oxygen Applications",
+    shortDesc: "Engineered for critical oxygen needs",
+    desc: "Application-specific compressor solutions built for critical oxygen processing.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+    icon: <Activity className="w-6 h-6" />,
   },
 ];
+
+// Separate Card component to properly handle hooks (useRef) inside a loop
+function IndustryCard({ industry, index, isVisible, hoveredIndex, setHoveredIndex }) {
+  const cardRef = useRef(null);
+  const delay = 150 + index * 100;
+  const isHovered = hoveredIndex === index;
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+    cardRef.current.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (!cardRef.current) return;
+    cardRef.current.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)";
+    setHoveredIndex(null);
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      className={`
+        group relative rounded-2xl overflow-hidden
+        border border-white/10
+        transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
+        will-change-transform
+        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+      `}
+      style={{ transitionDelay: `${delay}ms` }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => setHoveredIndex(index)}
+    >
+      {/* Background Image */}
+      <div className="relative aspect-[4/3] sm:aspect-[3/4] lg:aspect-[3/4] overflow-hidden">
+        <Image
+          src={industry.image}
+          alt={industry.name}
+          fill
+          className={`
+            object-cover transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]
+            ${isHovered ? "scale-110" : "scale-100"}
+          `}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        />
+
+        {/* Dark overlay gradient */}
+        <div className={`
+          absolute inset-0
+          bg-gradient-to-t from-[#0B1F33] via-[#0B1F33]/50 to-transparent
+          transition-all duration-700
+          ${isHovered ? "opacity-90" : "opacity-100"}
+        `} />
+
+        {/* Gold pillar – left side (on top of image) */}
+        <div className="absolute left-0 top-0 bottom-0 w-1 z-10 overflow-hidden">
+          <div
+            className={`
+              w-full bg-gradient-to-b from-gold-400 to-gold-600
+              transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]
+              ${isHovered ? "h-full" : "h-0"}
+            `}
+          />
+        </div>
+
+        {/* Content overlay */}
+        <div className="absolute inset-0 p-4 lg:p-5 flex flex-col justify-end z-10">
+          {/* Icon */}
+          <div className={`
+            w-10 h-10 rounded-xl
+            bg-white/10 backdrop-blur-sm
+            flex items-center justify-center mb-3
+            text-gold-400
+            transition-all duration-500
+            group-hover:scale-110
+            border border-white/10
+          `}>
+            {industry.icon}
+          </div>
+
+          {/* Industry name */}
+          <h3 className="text-base lg:text-lg font-semibold text-white tracking-wide leading-tight">
+            {industry.name}
+          </h3>
+
+          {/* Short description – always visible */}
+          <p className="text-xs lg:text-sm text-white/60 mt-1 leading-snug">
+            {industry.shortDesc}
+          </p>
+
+          {/* Full description – slides in on hover */}
+          <div className={`
+            overflow-hidden transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
+            ${isHovered ? "max-h-32 opacity-100 mt-2" : "max-h-0 opacity-0"}
+          `}>
+            <p className="text-xs text-white/80 leading-relaxed">
+              {industry.desc}
+            </p>
+          </div>
+
+          {/* Bottom indicator */}
+          <div className="flex items-center gap-2 mt-3">
+            <span className={`
+              w-1.5 h-1.5 rounded-full
+              transition-all duration-500
+              ${isHovered ? "bg-gold-400 shadow-[0_0_12px_rgba(216,179,106,0.5)]" : "bg-white/20"}
+            `} />
+            <span className="text-[9px] uppercase tracking-[0.15em] text-white/30">
+              {isHovered ? "View Details" : "Sector"}
+            </span>
+          </div>
+        </div>
+
+        {/* Hover glow border */}
+        <div className={`
+          absolute inset-0 rounded-2xl border-2 border-gold-400/0
+          transition-all duration-700
+          ${isHovered ? "border-gold-400/40" : ""}
+          pointer-events-none z-20
+        `} />
+      </div>
+    </div>
+  );
+}
 
 export default function Industries() {
   const sectionRef = useRef(null);
@@ -89,33 +261,13 @@ export default function Industries() {
     return () => observer.disconnect();
   }, []);
 
-  // 3D tilt effect
-  const handleMouseMove = (e, cardRef) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -5;
-    const rotateY = ((x - centerX) / centerX) * 5;
-    cardRef.current.style.transform =
-      `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-  };
-
-  const handleMouseLeave = (cardRef) => {
-    if (!cardRef.current) return;
-    cardRef.current.style.transform =
-      "perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)";
-  };
-
   return (
     <section
       id="industries"
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#0B1F33] py-10 lg:py-14"
+      className="relative overflow-hidden bg-[#0B1F33] py-16 lg:py-20"
     >
-      {/* Cinematic background glow */}
+      {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 w-96 h-96 bg-gold-400/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/2 w-80 h-80 bg-gold-500/5 rounded-full blur-3xl" />
@@ -125,138 +277,30 @@ export default function Industries() {
         {/* Section header */}
         <div className="flex items-center gap-4 mb-4">
           <span className="w-8 h-px bg-gold-400/60" />
-          <span className="text-[10px] uppercase tracking-[0.3em] text-gold-400">Our Sectors</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white">Our Sectors</span>
         </div>
 
-        <div className="mb-12">
+        <div className="mb-10 lg:mb-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white leading-[1.1]">
             Industries <span className="text-gold-400">We Serve</span>
           </h2>
           <p className="text-white/50 text-base sm:text-lg max-w-xl mt-3">
-            Specialised emergency lighting solutions across critical infrastructure sectors.
+            Advanced compressor and engineering solutions across critical energy, industrial, and process sectors.
           </p>
         </div>
 
-        {/* Industries grid – 2 columns on desktop */}
-        <div className="grid sm:grid-cols-2 gap-6">
-          {industries.map((industry, index) => {
-            const cardRef = useRef(null);
-            const delay = 150 + index * 100;
-            const isHovered = hoveredIndex === index;
-
-            return (
-              <div
-                key={industry.id}
-                ref={cardRef}
-                className={`
-                  group relative rounded-2xl overflow-hidden
-                  border border-white/10
-                  transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
-                  will-change-transform
-                  ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-                `}
-                style={{ transitionDelay: `${delay}ms` }}
-                onMouseMove={(e) => handleMouseMove(e, cardRef)}
-                onMouseLeave={() => handleMouseLeave(cardRef)}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                {/* Background Image */}
-                <div className="relative aspect-[4/3] sm:aspect-[3/2] overflow-hidden">
-                  <Image
-                    src={industry.image}
-                    alt={industry.name}
-                    fill
-                    className={`
-                      object-cover transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]
-                      ${isHovered ? "scale-110" : "scale-100"}
-                    `}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-
-                  {/* Dark overlay gradient */}
-                  <div className={`
-                    absolute inset-0
-                    bg-gradient-to-br ${industry.gradient}
-                    transition-all duration-700
-                    ${isHovered ? "opacity-90" : "opacity-100"}
-                  `} />
-
-                  {/* Gold pillar – left side (on top of image) */}
-                  <div className="absolute left-0 top-0 bottom-0 w-1 z-10 overflow-hidden">
-                    <div
-                      className={`
-                        w-full bg-gradient-to-b from-gold-400 to-gold-600
-                        transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]
-                        ${isHovered ? "h-full" : "h-0"}
-                      `}
-                    />
-                  </div>
-
-                  {/* Content overlay */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
-                    {/* Icon with gradient */}
-                    <div className={`
-                      w-12 h-12 rounded-2xl
-                      bg-white/10 backdrop-blur-sm
-                      flex items-center justify-center mb-4
-                      text-gold-400
-                      transition-all duration-500
-                      group-hover:scale-110
-                      border border-white/10
-                    `}>
-                      <div className="w-6 h-6">{industry.icon}</div>
-                    </div>
-
-                    {/* Industry name */}
-                    <h3 className="text-xl font-semibold text-white tracking-wide">
-                      {industry.name}
-                    </h3>
-
-                    {/* Short description – always visible */}
-                    <p className="text-sm text-white/60 mt-1">
-                      {industry.shortDesc}
-                    </p>
-
-                    {/* Full description – slides in on hover */}
-                    <div className={`
-                      overflow-hidden transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
-                      ${isHovered ? "max-h-24 opacity-100 mt-3" : "max-h-0 opacity-0"}
-                    `}>
-                      <p className="text-sm text-white/80 leading-relaxed">
-                        {industry.desc}
-                      </p>
-                    </div>
-
-                    {/* Bottom indicator */}
-                    <div className="flex items-center gap-2 mt-4">
-                      <span className={`
-                        w-2 h-2 rounded-full
-                        transition-all duration-500
-                        ${isHovered ? "bg-gold-400 shadow-[0_0_12px_rgba(216,179,106,0.5)]" : "bg-white/20"}
-                      `} />
-                      <span className="text-[10px] uppercase tracking-[0.15em] text-white/30">
-                        {isHovered ? "View Details" : "Sector"}
-                      </span>
-                      {isHovered && (
-                        <svg className="w-3 h-3 text-gold-400 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 12h13M13 6l6 6-6 6" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Hover glow border */}
-                  <div className={`
-                    absolute inset-0 rounded-2xl border-2 border-gold-400/0
-                    transition-all duration-700
-                    ${isHovered ? "border-gold-400/40" : ""}
-                    pointer-events-none z-20
-                  `} />
-                </div>
-              </div>
-            );
-          })}
+        {/* Industries grid – 4 columns on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          {industries.map((industry, index) => (
+            <IndustryCard
+              key={industry.id}
+              industry={industry}
+              index={index}
+              isVisible={isVisible}
+              hoveredIndex={hoveredIndex}
+              setHoveredIndex={setHoveredIndex}
+            />
+          ))}
         </div>
 
         {/* Connecting thread */}
@@ -267,7 +311,7 @@ export default function Industries() {
               <span
                 key={i}
                 className="w-1.5 h-1.5 rounded-full bg-gold-400/40 animate-pulse"
-                style={{ animationDelay: `${i * 250}ms` }}
+                style={{ animationDelay: `${i * 200}ms` }}
               />
             ))}
           </span>

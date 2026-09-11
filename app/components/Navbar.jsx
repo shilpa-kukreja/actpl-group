@@ -113,36 +113,12 @@ export default function Navbar() {
               className="group relative flex items-center gap-3"
               onClick={closeMobile}
             >
-              {/* Logo mark */}
-              <div className="relative flex h-10 w-10 items-center justify-center">
-                {/* Orbit */}
-                <span className="absolute inset-0 rounded-full border border-white/20 transition-all duration-700 group-hover:rotate-180 group-hover:border-[#F28C28]/60" />
-
-                <span className="absolute -inset-[3px] rounded-full border border-transparent border-t-[#F28C28]/80 opacity-0 transition-all duration-700 group-hover:rotate-[260deg] group-hover:opacity-100" />
-
-                {/* Core */}
-                <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-white/[0.06]">
-                  <span className="text-lg font-light tracking-wider text-white transition-colors duration-500 group-hover:text-[#F28C28]">
-                    A
-                  </span>
-                </span>
-
-              </div>
-
-              {/* Brand */}
-              <div className="hidden sm:block">
-                <div className="flex items-center gap-2">
-                  <span className="text-[15px] font-medium tracking-[0.28em] text-white">
-                    ACTPL
-                  </span>
-
-               
-                </div>
-
-                <span className="text-[8px] font-light uppercase tracking-[0.42em] text-white/35">
-                  Group
-                </span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="w-[100px] rounded-md transition-all duration-300 group-hover:scale-110"
+              /> 
+             
             </Link>
 
             {/* ================= DESKTOP NAV ================= */}
