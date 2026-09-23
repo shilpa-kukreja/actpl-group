@@ -121,7 +121,7 @@ export default function Contact() {
           >
             <div className="relative h-[500px] lg:h-full min-h-[400px]">
               <img
-                src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=600&fit=crop"
+                src="/contact/1.png"
                 alt="ACTPL Contact"
                 className="w-full h-full object-cover  duration-700 "
               />

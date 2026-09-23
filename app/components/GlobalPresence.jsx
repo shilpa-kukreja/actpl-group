@@ -20,7 +20,7 @@ const hubs = [
     country: "INDIA",
     flag: "https://flagcdn.com/in.svg", // Real India flag image
     subtitle: "Manufacturing & Engineering Hub",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800", 
+    image: "/global/1.png", 
     features: [
       { icon: Settings, text: "Precision Manufacturing" },
       { icon: Layers, text: "Compressor Technologies" },
@@ -34,7 +34,7 @@ const hubs = [
     country: "UNITED ARAB EMIRATES",
     flag: "https://flagcdn.com/ae.svg", // Real UAE flag image
     subtitle: "Middle East Sales & Service Hub",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800", 
+    image: "/global/2.png", 
     features: [
       { icon: Box, text: "Regional Stocking" },
       { icon: Wrench, text: "Valve Repair & Refurbishment" },
@@ -48,7 +48,7 @@ const hubs = [
     country: "UNITED STATES",
     flag: "https://flagcdn.com/us.svg", // Real USA flag image
     subtitle: "North American Sales & Support Hub",
-    image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&q=80&w=800", 
+    image: "/global/3.png", 
     features: [
       { icon: Truck, text: "Local Inventory" },
       { icon: Settings, text: "Aftermarket Compressor Solutions" },

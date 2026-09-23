@@ -3,98 +3,53 @@
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 
-// SVG Icons for each company
-const icons = {
-  manufacturing: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2L2 7l10 5 10-5-10-5z" />
-      <path d="M2 17l10 5 10-5" />
-      <path d="M2 12l10 5 10-5" />
-      <path d="M9 14.5l-3 1.5 6 3 6-3-3-1.5" />
-    </svg>
-  ),
-  infrastructure: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 21h18" />
-      <path d="M5 21V7l4-4 4 4v14" />
-      <path d="M19 21V11l-3-3" />
-      <path d="M9 12h6" />
-      <path d="M9 16h6" />
-    </svg>
-  ),
-  energy: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-    </svg>
-  ),
-  engineering: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-      <path d="M12 6v6l4 2" />
-      <path d="M6 12h12" />
-    </svg>
-  ),
-  automotive: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="7" cy="17" r="2" />
-      <circle cx="17" cy="17" r="2" />
-      <path d="M5 17h14v-6l-3-4H8L5 11v6z" />
-      <path d="M5 11h14" />
-    </svg>
-  ),
-  construction: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 21h16" />
-      <path d="M6 21V9l6-4 6 4v12" />
-      <path d="M8 12h8" />
-      <path d="M8 16h8" />
-    </svg>
-  ),
+// 👇 PASTE YOUR IMAGE LINKS HERE (one per company)
+const images = {
+  manufacturing: "/companies/logo.png",
+  infrastructure: "/companies/logo.png",
+  energy: "/companies/logo.png",
+  engineering: "/companies/logo.png",
+  automotive: "/companies/logo.png",
+  construction: "/companies/logo.png",
 };
 
 const companies = [
   {
     id: 1,
-    name: "ACTPL Manufacturing",
-    desc: "Precision machining and high‑volume production for automotive and industrial sectors.",
-    icon: "manufacturing",
+    name: "Airpack compressor teknologies",
+    desc: "Precision-engineered compressor spares, made in India for the world.",
+    image: images.manufacturing,
     website: "#",
   },
   {
     id: 2,
-    name: "ACTPL Infrastructure",
-    desc: "Large‑scale civil engineering, smart city projects, and sustainable construction.",
-    icon: "infrastructure",
+    name: "Airpack International FZE",
+    desc: "ACTPL's UAE hub for compressor spares and industrial parts across the Middle East.",
+    image: images.infrastructure,
     website: "#",
   },
   {
     id: 3,
-    name: "ACTPL Energy",
-    desc: "Renewable energy solutions, power generation, and energy efficiency consulting.",
-    icon: "energy",
+    name: "Reverse Airpack",
+    desc: "Reverse engineering experts who recreate and improve hard-to-source compressor parts.",
+    image: images.energy,
     website: "#",
   },
   {
     id: 4,
-    name: "ACTPL Engineering",
-    desc: "Advanced engineering design, prototyping, and R&D for complex systems.",
-    icon: "engineering",
+    name: "Spareco",
+    desc: "Trusted compressor spares specialist delivering valves, pistons, and rings for decades.",
+    image: images.engineering,
     website: "#",
   },
   {
     id: 5,
-    name: "ACTPL Automotive",
-    desc: "Innovative automotive components, EV parts, and supply chain integration.",
-    icon: "automotive",
+    name: "Airpack USA",
+    desc: "Bringing Airpack's precision compressor solutions closer to North America.",
+    image: images.automotive,
     website: "#",
   },
-  {
-    id: 6,
-    name: "ACTPL Construction",
-    desc: "Premium residential, commercial, and industrial construction services worldwide.",
-    icon: "construction",
-    website: "#",
-  },
+ 
 ];
 
 export default function GroupCompanies() {
@@ -189,9 +144,14 @@ export default function GroupCompanies() {
                 <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-gold-400/0 via-gold-400/0 to-gold-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                 <div className="relative p-6 flex flex-col items-start">
-                  {/* Icon with gold ring */}
-                  <div className="w-14 h-14 rounded-full border border-white flex items-center justify-center mb-5 text-gold-400 group-hover:border-gold-400/60 group-hover:shadow-[0_0_30px_rgba(216,179,106,0.15)] transition-all duration-500">
-                    <div className="w-7 h-7 text-white">{icons[company.icon]}</div>
+                  {/* Image with gold ring */}
+                  <div className="w-14 h-14 rounded-full border border-white flex items-center justify-center mb-5 overflow-hidden group-hover:border-gold-400/60 group-hover:shadow-[0_0_30px_rgba(216,179,106,0.15)] transition-all duration-500">
+                    <img
+                      src={company.image}
+                      alt={company.name}
+                      loading="lazy"
+                      className="w-full h-full object-contain "
+                    />
                   </div>
 
                   {/* Name */}

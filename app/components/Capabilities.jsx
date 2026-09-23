@@ -3,16 +3,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, Grid } from "swiper/modules";
-import {
-  Settings,
-  Activity,
-  Search,
-  Ruler,
-  Layers,
-  ShieldCheck,
-  Lightbulb,
-  Globe,
-} from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -20,13 +10,14 @@ import "swiper/css/navigation";
 import "swiper/css/grid";
 
 // Exact content mapped from CORE CAPABILITIES.txt
+// 👇 PASTE YOUR IMAGE URLS IN THE `image` FIELDS BELOW
 const capabilities = [
   {
     id: 1,
     title: "Precision Manufacturing",
     desc: "ACTPL combines 46+ years of manufacturing experience with advanced CNC machining, grinding, lapping, assembly, testing, and precision inspection capabilities to manufacture complex, high-accuracy components for demanding industrial applications. From prototypes and small-batch requirements to repeat production, our focus remains on dimensional accuracy, material integrity, consistency, and dependable performance.",
     badge: "46+ Years of Expertise",
-    icon: <Settings className="w-8 h-8" />,
+    image: "/capabilities/precision manufacturing.png",
     gradient: "from-blue-600 to-blue-800",
   },
   {
@@ -34,7 +25,7 @@ const capabilities = [
     title: "Reciprocating Compressor Technology",
     desc: "Deep specialization in reciprocating compressor components and aftermarket solutions, supporting a wide range of compressor makes, models, operating conditions, and industrial applications.Our capabilities include compressor valves, internals, packing cases and rings, piston and rider rings, pistons, piston rods, scraper components, liners, and other critical parts.",
     badge: "Worldwide Support",
-    icon: <Activity className="w-8 h-8" />,
+    image: "/capabilities/reciprocator compressing technology.png",
     gradient: "from-indigo-600 to-indigo-800",
   },
   {
@@ -42,7 +33,7 @@ const capabilities = [
     title: "Advanced Reverse Engineering",
     desc: "We transform existing components, samples, and legacy parts into manufacturing-ready engineering solutions through advanced measurement, 3D scanning, dimensional analysis, material evaluation, engineering drawings, prototyping, validation, and manufacturing.Our reverse engineering capabilities help customers address obsolete components and difficult-to-source critical parts.",
     badge: "From Component to Complete Solution",
-    icon: <Search className="w-8 h-8" />,
+    image: "/capabilities/advanced reverse engineering.png",
     gradient: "from-purple-600 to-purple-800",
   },
   {
@@ -50,7 +41,7 @@ const capabilities = [
     title: "Precision Engineering & Inspection",
     desc: " Precision is engineered into every stage of our process.Advanced dimensional inspection, metrology, surface measurement, material verification, and quality-control technologies support manufacture of components where tight tolerances, surface finish, geometry, and repeatability are critical to performance.",
     badge: "Verified with Confidence",
-    icon: <Ruler className="w-8 h-8" />,
+    image: "/capabilities/precision engineering and inspection.png",
     gradient: "from-emerald-600 to-emerald-800",
   },
   {
@@ -58,7 +49,7 @@ const capabilities = [
     title: "Materials & Application Expertise",
     desc: "Industrial performance begins with selecting the right material for the operating environment.Our experience spans stainless and specialty steels, precipitation-hardening alloys, nickel-based superalloys, high-performance thermoplastics, engineered polymers, and specialized coatings for applications involving pressure, temperature, corrosion, wear, and cyclic loading.",
     badge: "The Right Material. The Right Performance",
-    icon: <Layers className="w-8 h-8" />,
+    image: "/capabilities/materials and application expertise.png",
     gradient: "from-amber-600 to-amber-800",
   },
   {
@@ -66,7 +57,7 @@ const capabilities = [
     title: "Quality & Reliability",
     desc: "Quality is integrated throughout our engineering and manufacturing processes—from incoming material verification and process control to final dimensional inspection, testing, documentation, and traceability.Supported by internationally recognized management systems and continuous improvement, our objective is simple: consistent quality and dependable performance in every component we deliver.",
     badge: "Quality Without Compromise",
-    icon: <ShieldCheck className="w-8 h-8" />,
+    image: "/capabilities/quality and relaibikity.png",
     gradient: "from-rose-600 to-rose-800",
   },
   {
@@ -74,7 +65,7 @@ const capabilities = [
     title: "Engineering Development & Continuous Innovation",
     desc: "ACTPL continually invests in advanced manufacturing technologies, metrology, materials, process development, and engineering knowledge to strengthen our capabilities and solve increasingly complex industrial challenges.Our approach combines decades of manufacturing experience with modern engineering technology to continuously improve how components are developed, manufactured, and supported.",
     badge: "Innovation Driving Performance",
-    icon: <Lightbulb className="w-8 h-8" />,
+    image: "/capabilities/engineer development and continous innovation.png",
     gradient: "from-cyan-600 to-cyan-800",
   },
   {
@@ -82,7 +73,7 @@ const capabilities = [
     title: "Global Supply, Service & Support",
     desc: "ACTPL combines the manufacturing and engineering strength of India with regional operations in the UAE and USA, creating a global platform for communication, technical support, component supply, and aftermarket service.Through our group companies, we support customers across Europe, the Middle East, Asia, North America, and other international markets.",
     badge: "Engineered in India. Supported Globally.",
-    icon: <Globe className="w-8 h-8" />,
+    image: "/capabilities/global supply, service support.png",
     gradient: "from-teal-600 to-teal-800",
   },
 ];
@@ -190,19 +181,24 @@ export default function Capabilities() {
                     {/* Glow border on hover */}
                     <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-gold-400/0 via-gold-400/0 to-gold-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                    {/* Icon */}
+                    {/* Image (replaces icon) */}
                     <div
                       className={`
                         w-14 h-14 rounded-2xl
                         bg-gradient-to-br ${capability.gradient}
                         flex items-center justify-center mb-5
-                        text-white
                         transition-all duration-500
                         group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(216,179,106,0.2)]
                         flex-shrink-0
+                        overflow-hidden
                       `}
                     >
-                      {capability.icon}
+                      <img
+                        src={capability.image}
+                        alt={capability.title}
+                        loading="lazy"
+                        className="w-8 h-8 object-contain"
+                      />
                     </div>
 
                     {/* Title */}

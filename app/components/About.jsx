@@ -6,22 +6,22 @@ import Image from "next/image";
 // Slider images (replace with your own)
 const sliderImages = [
   {
-    src: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=400&fit=crop",
+    src: "/about/1.jpg",
     alt: "Manufacturing",
     label: "Advanced Manufacturing",
   },
   {
-    src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop",
+    src: "/about/2.jpg",
     alt: "Infrastructure",
     label: "Infrastructure Development",
   },
   {
-    src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop",
+    src: "/about/3.jpg",
     alt: "Energy",
     label: "Energy Solutions",
   },
   {
-    src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop",
+    src: "/about/4.jpg",
     alt: "Engineering",
     label: "Precision Engineering",
   },

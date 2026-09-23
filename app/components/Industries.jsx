@@ -24,7 +24,7 @@ const industries = [
     shortDesc: "Compression solutions for field-level gas collection",
     desc: "Reliable systems built to support gas gathering and transport operations from the field to the pipeline.",
     // Verified working image: Gas refinery at night
-    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Natural Gas Gathering.jpg",
     icon: <Flame className="w-6 h-6" />,
   },
   {
@@ -32,7 +32,7 @@ const industries = [
     name: "Liquefied Natural Gas (LNG)",
     shortDesc: "Engineered systems for LNG processing",
     desc: "Precision-built solutions supporting liquefaction, storage, and regasification processes.",
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Liquefied Natural Gas (LNG).jpg",
     icon: <Droplets className="w-6 h-6" />,
   },
   {
@@ -40,7 +40,7 @@ const industries = [
     name: "Biogas & Renewable Natural Gas (RNG)",
     shortDesc: "Compression built for renewable gas",
     desc: "Reliable solutions supporting the growing demand for cleaner, renewable gas processing.",
-    image: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Biogas & Renewable Natural Gas (RNG).jpg",
     icon: <Leaf className="w-6 h-6" />,
   },
   {
@@ -48,7 +48,7 @@ const industries = [
     name: "Chemical Processing",
     shortDesc: "Engineered for demanding environments",
     desc: "Equipment designed to perform reliably across complex chemical processing operations.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Chemical Processing.jpg",
     icon: <FlaskConical className="w-6 h-6" />,
   },
   {
@@ -57,7 +57,7 @@ const industries = [
     shortDesc: "Built for marine reliability",
     desc: "Specialized compressor systems engineered for the durability marine applications demand.",
     // Verified working image: Cargo ship
-    image: "https://images.unsplash.com/photo-1559628233-100c798642d4?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Marine.jpg",
     icon: <Ship className="w-6 h-6" />,
   },
   {
@@ -65,7 +65,7 @@ const industries = [
     name: "P.E.T. Bottle Blowing",
     shortDesc: "Precision air for high-volume production",
     desc: "High-precision compression solutions supporting efficient, high-volume bottle manufacturing.",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/P.E.T. Bottle Blowing.jpg",
     icon: <BottleWine className="w-6 h-6" />,
   },
   {
@@ -73,7 +73,7 @@ const industries = [
     name: "Compressed Natural Gas (CNG)",
     shortDesc: "Dependable CNG compression systems",
     desc: "Reliable solutions supporting fueling infrastructure and CNG distribution networks.",
-    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Compressed Natural Gas (CNG).jpg",
     icon: <Fuel className="w-6 h-6" />,
   },
   {
@@ -82,7 +82,7 @@ const industries = [
     shortDesc: "Pressure and flow, maintained",
     desc: "Robust compressor solutions engineered for long-distance pipeline transmission.",
     // Verified working image: Industrial pipeline infrastructure
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Pipeline Transmission.jpg",
     icon: <Network className="w-6 h-6" />,
   },
   {
@@ -90,7 +90,7 @@ const industries = [
     name: "Petrochemical Processing",
     shortDesc: "Engineered for complex processing",
     desc: "Advanced solutions built for the high-demand petrochemical processing industry.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Petrochemical Processing.jpg",
     icon: <Factory className="w-6 h-6" />,
   },
   {
@@ -98,7 +98,7 @@ const industries = [
     name: "Hydrogen Applications",
     shortDesc: "Precision for evolving hydrogen needs",
     desc: "Compression technology supporting the growing hydrogen application landscape.",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Hydrogen Applications.jpg",
     icon: <Wind className="w-6 h-6" />,
   },
   {
@@ -106,7 +106,7 @@ const industries = [
     name: "Oxygen Applications",
     shortDesc: "Engineered for critical oxygen needs",
     desc: "Application-specific compressor solutions built for critical oxygen processing.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+    image: "/industries/Oxygen Applications.jpg",
     icon: <Activity className="w-6 h-6" />,
   },
 ];
