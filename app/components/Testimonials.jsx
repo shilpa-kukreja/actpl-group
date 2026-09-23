@@ -266,14 +266,14 @@ export default function Testimonials() {
 
                       {/* Client info */}
                       <div className="mt-4 pt-4 border-t border-white/5 flex items-center gap-4">
-                        <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-gold-400/30 flex-shrink-0 transition-all duration-500 group-hover:border-gold-400 shadow-[0_0_20px_rgba(216,179,106,0.1)]">
-                          <img
+                        {/* <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-gold-400/30 flex-shrink-0 transition-all duration-500 group-hover:border-gold-400 shadow-[0_0_20px_rgba(216,179,106,0.1)]">
+                         <img 
                             src={testimonial.image}
                             alt={testimonial.name}
                             className="w-full h-full object-cover"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                        </div>
+                        </div> */}
                         <div className="flex-1 min-w-0">
                           <h4 className="text-sm font-semibold text-white">
                             {testimonial.name}
@@ -281,15 +281,15 @@ export default function Testimonials() {
                           <p className="text-xs text-white/40 truncate">
                             {testimonial.position}
                           </p>
-                          <p className="text-xs text-white truncate">
+                          {/* <p className="text-xs text-white truncate">
                             {testimonial.company}
-                          </p>
+                          </p> */}
                         </div>
-                        <div className="flex-shrink-0">
+                        {/* <div className="flex-shrink-0">
                           <span className="text-[8px] uppercase tracking-[0.15em] text-white/30 bg-white/5 px-2 py-1 rounded-full border border-white/5">
                             {testimonial.industry}
                           </span>
-                        </div>
+                        </div> */}
                       </div>
 
                       {/* Film reel counter */}
