@@ -19,14 +19,14 @@ const companies = [
     name: "Airpack compressor teknologies",
     desc: "Precision-engineered compressor spares, made in India for the world.",
     image: images.manufacturing,
-    website: "#",
+    website: "https://airpackcompressor.com/",
   },
   {
     id: 2,
     name: "Airpack International FZE",
     desc: "ACTPL's UAE hub for compressor spares and industrial parts across the Middle East.",
     image: images.infrastructure,
-    website: "#",
+    website: "https://www.airpackinternational.com/",
   },
   {
     id: 3,
