@@ -151,7 +151,7 @@ export default function Footer() {
             {/* Social & Newsletter */}
             <div>
               <h4 className="text-xs uppercase tracking-[0.25em] text-white mb-4">Connect With Us</h4>
-              <div className="flex gap-3">
+              {/* <div className="flex gap-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
@@ -164,7 +164,7 @@ export default function Footer() {
                     <span className="w-4 h-4">{social.icon}</span>
                   </a>
                 ))}
-              </div>
+              </div> */}
 
               <div className="mt-6">
                 <p className="text-xs text-white tracking-[0.15em] mb-2">Subscribe to our newsletter</p>
@@ -215,7 +215,7 @@ export default function Footer() {
       {/* Fixed WhatsApp & Call buttons (unchanged) */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <a
-          href="tel:+1234567890"
+          href="tel:+918130622229"
           className="group relative w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-110 transition-all duration-300"
           aria-label="Call us"
         >
@@ -230,7 +230,7 @@ export default function Footer() {
         </a>
 
         <a
-          href="https://wa.me/1234567890"
+          href="https://wa.me/+918130622229"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-lg shadow-green-500/40 hover:shadow-green-500/60 hover:scale-110 transition-all duration-300"
