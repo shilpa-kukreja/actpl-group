@@ -20,7 +20,7 @@ const hubs = [
     country: "INDIA",
     flag: "https://flagcdn.com/in.svg", // Real India flag image
     subtitle: "Manufacturing & Engineering Hub",
-    image: "/global/1.png", 
+    image: "/global/Manufacturing & Engineering Hub 01.jpeg", 
     features: [
       { icon: Settings, text: "Precision Manufacturing" },
       { icon: Layers, text: "Compressor Technologies" },

@@ -21,7 +21,7 @@ const sliderImages = [
     label: "Energy Solutions",
   },
   {
-    src: "/about/4.jpg",
+    src: "/about/Precision Engineering.jpeg",
     alt: "Engineering",
     label: "Precision Engineering",
   },
