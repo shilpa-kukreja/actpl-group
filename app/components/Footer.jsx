@@ -90,10 +90,11 @@ export default function Footer() {
             {/* Brand */}
             <div className="space-y-4">
               <Link href="/" className="flex items-center gap-3 group">
-                <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-lg shadow-gold-500/20 group-hover:scale-110 transition-transform duration-300">
+              <img src="/logo.png" width={"120px"}/>
+                {/* <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-lg shadow-gold-500/20 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-white font-bold text-lg">A</span>
                 </div>
-                <span className="text-lg font-light tracking-[0.25em] text-white">ACTPL</span>
+                <span className="text-lg font-light tracking-[0.25em] text-white">ACTPL</span> */}
               </Link>
               <p className="text-sm text-white leading-relaxed max-w-xs">
                 A diversified engineering and manufacturing group delivering advanced compressor technologies and precision engineering solutions across India, the UAE, and the USA.
