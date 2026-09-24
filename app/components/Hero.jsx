@@ -10,32 +10,16 @@ const slides = [
     title: "Engineering Tomorrow's Future",
     subtitle: "Leading industrial group with a legacy of excellence",
     cta: "Explore More",
-    image: "/home/banner.jpg",
-    // gradient: "from-blue-900/70 to-black/70",
+    desktopImage: "/home/desktop.jpg",
+    mobileImage: "/home/mobile.png",
   },
   // {
   //   id: 2,
   //   title: "Global Infrastructure Solutions",
   //   subtitle: "Building the backbone of modern civilization",
   //   cta: "Our Projects",
-  //   image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80",
-  //   gradient: "from-emerald-900/70 to-black/70",
-  // },
-  // {
-  //   id: 3,
-  //   title: "Powering Sustainable Energy",
-  //   subtitle: "Innovative energy solutions for a greener tomorrow",
-  //   cta: "Learn More",
-  //   image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1600&q=80",
-  //   gradient: "from-amber-900/70 to-black/70",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Precision Engineering & R&D",
-  //   subtitle: "Pushing the boundaries of innovation",
-  //   cta: "Our Capabilities",
-  //   image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1600&q=80",
-  //   gradient: "from-indigo-900/70 to-black/70",
+  //   desktopImage: "/home/banner2-desktop.jpg",
+  //   mobileImage: "/home/banner2-mobile.jpg",
   // },
 ];
 
@@ -50,10 +34,8 @@ export default function Hero() {
 
   // Start / restart the auto-slide timer
   const startTimer = () => {
-    // Clear any existing interval
     if (intervalRef.current) clearInterval(intervalRef.current);
 
-    // Reset progress and trigger transition
     setProgress(0);
     setIsTransitioning(true);
 
@@ -61,9 +43,7 @@ export default function Hero() {
       setProgress((prev) => {
         const next = prev + 100 / (SLIDE_INTERVAL / PROGRESS_STEP);
         if (next >= 100) {
-          // Advance to next slide
           setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-          // Reset progress (will be set to 0 on next tick, but we return 0 now to avoid extra update)
           return 0;
         }
         return next;
@@ -71,7 +51,6 @@ export default function Hero() {
     }, PROGRESS_STEP);
   };
 
-  // Start timer on mount
   useEffect(() => {
     startTimer();
     return () => {
@@ -79,7 +58,6 @@ export default function Hero() {
     };
   }, []);
 
-  // Handle transition state reset after zoom animation
   useEffect(() => {
     if (isTransitioning) {
       const timeout = setTimeout(() => setIsTransitioning(false), 800);
@@ -87,11 +65,9 @@ export default function Hero() {
     }
   }, [isTransitioning, currentSlide]);
 
-  // Manual navigation: go to specific slide
   const goToSlide = (index) => {
     if (index === currentSlide) return;
     setCurrentSlide(index);
-    // Restart timer to sync progress
     startTimer();
   };
 
@@ -99,6 +75,9 @@ export default function Hero() {
   const prevSlide = () => goToSlide((currentSlide - 1 + slides.length) % slides.length);
 
   const current = slides[currentSlide];
+
+  const desktopSrc = current.desktopImage || current.mobileImage;
+  const mobileSrc = current.mobileImage || current.desktopImage;
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
@@ -108,26 +87,43 @@ export default function Hero() {
           className={`absolute inset-0 w-full h-full transition-transform duration-[8000ms] ease-out ${
             isTransitioning ? "scale-105" : "scale-100"
           }`}
-          style={{
-            backgroundImage: `url(${current.image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className={`absolute inset-0 bg-gradient-to-r ${current.gradient} opacity-80`} />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNHYtMmgtNHpNNiAzNHYtNEg0djRIMHYyaDR2NGgydi00aDR2LTJINnpNNiA0VjBINHY0SDB2Mmg0djRoMlY2aDRWNEg2eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+        >
+          {/* Desktop image (hidden on mobile) */}
+          <Image
+            key={`d-${current.id}`}
+            src={desktopSrc}
+            alt={current.title}
+            fill
+            priority={currentSlide === 0}
+            sizes="100vw"
+            className="hidden md:block object-cover object-center"
+          />
+
+          {/* Mobile image (hidden on desktop) */}
+          <Image
+            key={`m-${current.id}`}
+            src={mobileSrc}
+            alt={current.title}
+            fill
+            priority={currentSlide === 0}
+            
+            className="block md:hidden mt-16"
+          />
+        </div>
+
+        {/* Dark overlays removed — image now shows at full brightness */}
       </div>
 
       {/* Progress bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-10">
+      {/* <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-10">
         <div
           className="h-full bg-gradient-to-r from-gold-400 to-gold-500 transition-all duration-[50ms] ease-linear"
           style={{ width: `${Math.min(progress, 100)}%` }}
         />
-      </div>
+      </div> */}
 
       {/* Navigation controls */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center gap-4">
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center gap-4">
         <div className="flex items-center gap-2">
           {slides.map((_, index) => (
             <button
@@ -163,7 +159,7 @@ export default function Hero() {
             </svg>
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Scroll indicator */}
       <div className="absolute bottom-20 right-8 z-10 hidden lg:flex flex-col items-center gap-2 text-white/20">
