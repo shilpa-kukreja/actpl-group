@@ -130,20 +130,20 @@ export default function Footer() {
                   <svg className="w-4 h-4 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span>+1 (234) 567-8900</span>
+                  <span> +91 8130622229</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm text-white">
                   <svg className="w-4 h-4 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span>info@actpl.com</span>
+                  <span> sales@airpackcompressor.com</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm text-white">
                   <svg className="w-4 h-4 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
-                  <span>123 Industrial Avenue, New York, NY 10001</span>
+                  <span> 59 DSIDC SHED scheme 1, Okhla Industrial Area Phase II, New Delhi - 110020, INDIA</span>
                 </li>
               </ul>
             </div>
@@ -203,11 +203,11 @@ export default function Footer() {
             <p className="text-xs text-white tracking-[0.1em]">
               © {currentYear} ACTPL Group. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-[10px] uppercase tracking-[0.15em] text-white">
+            {/* <div className="flex items-center gap-6 text-[10px] uppercase tracking-[0.15em] text-white">
               <Link href="#" className="hover:text-gold-400 transition-colors">Privacy Policy</Link>
               <Link href="#" className="hover:text-gold-400 transition-colors">Terms of Service</Link>
               <Link href="#" className="hover:text-gold-400 transition-colors">Cookies</Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
