@@ -2,10 +2,9 @@
 
 import { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation, Grid } from "swiper/modules";
+import { Autoplay, Navigation, Grid } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/grid";
 
@@ -130,7 +129,7 @@ export default function Capabilities() {
 
         {/* Swiper Carousel */}
         <Swiper
-          modules={[Autoplay, Pagination, Navigation, Grid]}
+          modules={[Autoplay, Navigation, Grid]}
           spaceBetween={24}
           slidesPerView={1}
           grid={{ rows: 1, fill: "row" }}
@@ -140,10 +139,6 @@ export default function Capabilities() {
             pauseOnMouseEnter: true,
           }}
           loop={true}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-          }}
           navigation={true}
           breakpoints={{
             640: {
@@ -230,15 +225,7 @@ export default function Capabilities() {
 
       <style jsx>{`
         .capabilities-swiper {
-          padding-bottom: 48px !important;
-        }
-        .capabilities-swiper .swiper-pagination-bullet {
-          background: rgba(11, 31, 51, 0.3);
-          opacity: 1;
-        }
-        .capabilities-swiper .swiper-pagination-bullet-active {
-          background: #d8b36a;
-          box-shadow: 0 0 12px rgba(216,179,106,0.5);
+          padding-bottom: 24px !important;
         }
         .capabilities-swiper .swiper-button-prev,
         .capabilities-swiper .swiper-button-next {

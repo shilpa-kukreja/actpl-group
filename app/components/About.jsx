@@ -6,7 +6,7 @@ import Image from "next/image";
 // Slider images (replace with your own)
 const sliderImages = [
   {
-    src: "/about/1.jpg",
+    src: "/about/Advanced Manufacturing.jpeg",
     alt: "Manufacturing",
     label: "Advanced Manufacturing",
   },

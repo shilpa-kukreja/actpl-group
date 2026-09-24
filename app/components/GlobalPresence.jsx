@@ -104,10 +104,10 @@ export default function GlobalPresence() {
           <path d="M800,400 Q850,250 950,200" fill="none" stroke="#F28C28" strokeWidth="1.5" strokeDasharray="4 4" />
         </svg> */}
 
-        <div className="absolute top-[35%] left-[15%] w-2 h-2 rounded-full bg-[#F28C28] shadow-[0_0_15px_#F28C28]" />
-        <div className="absolute top-[45%] left-[45%] w-2 h-2 rounded-full bg-[#F28C28] shadow-[0_0_15px_#F28C28]" />
-        <div className="absolute top-[50%] left-[55%] w-3 h-3 rounded-full bg-[#F28C28] shadow-[0_0_20px_#F28C28] animate-pulse" />
-        <div className="absolute top-[25%] left-[70%] w-2 h-2 rounded-full bg-[#F28C28] shadow-[0_0_15px_#F28C28]" />
+        {/* <div className="absolute top-[35%] left-[15%] w-2 h-2 rounded-full bg-[#F28C28] shadow-[0_0_15px_#F28C28]" /> */}
+        {/* <div className="absolute top-[45%] left-[45%] w-2 h-2 rounded-full bg-[#F28C28] shadow-[0_0_15px_#F28C28]" /> */}
+        {/* <div className="absolute top-[50%] left-[55%] w-3 h-3 rounded-full bg-[#F28C28] shadow-[0_0_20px_#F28C28] animate-pulse" /> */}
+        {/* <div className="absolute top-[25%] left-[70%] w-2 h-2 rounded-full bg-[#F28C28] shadow-[0_0_15px_#F28C28]" /> */}
       </div>
 
       <div className="container mx-auto px-6 lg:px-10 relative z-10">
