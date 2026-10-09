@@ -46,7 +46,7 @@ const companies = [
     id: 5,
     name: "Airpack USA",
     desc: "Bringing Airpack's precision compressor solutions closer to North America.",
-    image: images.automotive,
+    image: "/usa.png",
     website: "#",
   },
  
