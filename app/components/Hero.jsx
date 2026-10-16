@@ -10,7 +10,7 @@ const slides = [
     title: "Engineering Tomorrow's Future",
     subtitle: "Leading industrial group with a legacy of excellence",
     cta: "Explore More",
-    desktopImage: "/home/desktop.jpg",
+    desktopImage: "/home/d.jpeg",
     mobileImage: "/home/mobile.png",
   },
   // {
